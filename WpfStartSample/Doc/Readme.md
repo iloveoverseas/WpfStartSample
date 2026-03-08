@@ -13,9 +13,9 @@ Visual Studio でプロジェクトを開き、以下の手順で`Material Desig
 
 1. プロジェクトを右クリック →「NuGet パッケージの管理」
 
-2. 「参照」タブで以下のパッケージを検索
+2. 「参照」タブで`MaterialDesignThemes`を検索
 
-3. バージョンを 5.3.0 に固定してインストール
+3. バージョン 5.3.0 をインストール
 
 4. **App.xaml** ファイルにMaterial Designテーマを適用を追加します。
    
@@ -70,19 +70,35 @@ Visual Studio でプロジェクトを開き、以下の手順で`Material Desig
           </materialDesign:Card>
       </Grid>
    ```
-   
-8. プロジェクトをビルドして実行、以下のようにWPFにデザインが適用されていることを確認します。
-   
+
+8. プロジェクトをビルドして実行、以下のようにWPFにデザインが適用されていることを確認します。もしエラーで表示されない場合は、最初にビルドのクリーンを試みます。
+
 ![Material Design in XAML Sample](SampleWPF.png)
-   
+
 > MaterialDesignThemes.Wpf.Packlconファイルまたはアセンプリ'MaterialDesignThemes.Wpf, Version=5.3.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a'、
 > またはその依存関係 の1つが読み込めませんでした。指定されたファイルが見つかりま せん。
-   
+
 上記のエラーが発生した場合は「5. <参考> エラー」の解決策を試みます。
 
 ## 2. アプリケーションのアイコンを設定する
 
-事前に用意したアイコンファイル（.ico）をプロジェクトに追加し、アプリケーションのアイコンとして設定します。
+## 2.1 Material Design Icons を利用する
+
+アイコンに設定するPNGファイルを作成するか、以下のURLのアイコンを利用する。このURLはPNGファイルをダウンロードできる。
+
+> [Material Design Icons - Icon Library - Pictogrammers](https://pictogrammers.com/library/mdi/)
+
+
+
+ダウンロードしたPNGファイルは黒でありWindows11のタスクバーではアイコン画像が目立たないため、ペイント3Dなどで色を変更する。
+
+
+
+アイコンにするPNGファイルを以下のサイトでICOファイルに変換、ICOファイルとしてダウンロードする。
+
+[Convertio — ファイルコンバーター(無料)](https://convertio.co/ja/)
+
+ダウンロードしたICOファイルをプロジェクトにコピーし、以下の手順でアプリケーションに設定する。
 
 **手順**
 
@@ -92,7 +108,9 @@ Visual Studio でプロジェクトを開き、以下の手順で`Material Desig
 WFPの画面上にもアイコンを表示したい場合は、以下の手順でアイコンファイルをプロジェクトに追加します。
 
 1. プロジェクトを右クリック →「追加」→「既存の項目」
+
 2. アイコンファイル（.ico）を選択して追加
+
 3. 追加したアイコンをXAMLで表示します。
    
    ```html
@@ -101,22 +119,15 @@ WFPの画面上にもアイコンを表示したい場合は、以下の手順�
 
 ## 3. ウィンドウのスタイルをカスタマイズする
 
+XAMLでウィンドウのスタイルを以下のようにカスタマイズします。
+
 ```html
 <Window [...]
         BorderThickness="1" ResizeMode="NoResize" WindowStyle="None"
           [...] >
 ```
 
-## 4. Material Design Icons を利用する
-
-以下のURLのアイコンからアイコンの名称を参考にする。このURLのアイコンが全て存在するとは限らない。
-
-> https://pictogrammers.com/library/mdi/
-
-![Material Design Icons Pictogrammers](MaterialDesignIconsPictogrammers.png)
-
-
-## 5. <参考> エラー
+## 4. <参考> エラー
 
 > MaterialDesignThemes.Wpf.Packlconファイルまたはアセンプリ'MaterialDesignThemes.Wpf, Version=5.3.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a'、
 > またはその依存関係 の1つが読み込めませんでした。指定されたファイルが見つかりま せん。
